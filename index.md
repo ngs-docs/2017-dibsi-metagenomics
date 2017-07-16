@@ -1,13 +1,13 @@
-# 2017 Metagenomics workshop at UC Santa Cruz
+# 2017 DIBSI Metagenomics Workshop at UC Davis
 
-Instructors: Harriet Alexander, Phillip Brooks, and C. Titus Brown
+Lead Instructor: Harriet Alexander
 
-TAs: Luiz Irber, Shannon Joslin, Taylor Reiter
+Instructors: Phillip Brooks, and C. Titus Brown
 
-These are the online materials for a metagenomics workshop hosted by
-Marilou Sison-Mangus at UC Santa Cruz on April 22nd and April 23rd, 2017.
+These are the online materials for the environmental metagenomics workshop run as part of the Data Intensive Biology Summer Institute at UC Davis ([DIBSI](http://ivory.idyll.org/dibsi/)).
 
-[Etherpad](https://public.etherpad-mozilla.org/p/UCSC_metagenomics)
+We will be using HackMD to take collective notes throughout the course:
+[HackMD](https://hackmd.io/MzBmE4FYCMA4HYC08BMtSICwFMCGA2RWTfXRSABnAsxXAGNhJRcg).
 
 ## Day 1: Noon to 5pm
 
