@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2017 Metagenomics workshop at UC Santa Cruz &mdash; 2017-dibsi-metagenomics 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="2017-dibsi-metagenomics 1.0 documentation" href="toc.html" />
+    <link rel="next" title="Welcome!" href="welcome.html" />
+    <link rel="prev" title="Table of Contents" href="toc.html" />
+
+
+<style type="text/css">
+<!-- github-based editing disabled; set github_base_account
+     and github_project -->
+#editor-trap.toggled {
+  display: none;
+}
+</style>
+
+
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="toc.html">
+          2017-dibsi-metagenomics</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="toc.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">2017 Metagenomics workshop at UC Santa Cruz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetstream/boot.html">Booting a Jetstream Computer Instance for your use!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quality.html">Short read quality and trimming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assemble.html">Run the MEGAHIT assembler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prokka_tutorial.html">Annotation with Prokka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binning.html">Mapping and Binning a Metagenome Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="salmon_tutorial.html">Gene Abundance Estimation with Salmon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mapping.html">Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slice.html">Slicing and dicing with k-mers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circos_tutorial.html">Using and Installing Circos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow and repeatability discussion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DATA.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="INSTALL.html">Building this site on your own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">2017 / April / Metagenomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2-install.html">Day 2 - installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kmer_trimming.html">K-mer Spectral Error Trimming</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">2017 Metagenomics workshop at UC Santa Cruz</a><ul>
+<li><a class="reference internal" href="#day-1-noon-to-5pm">Day 1: Noon to 5pm</a></li>
+<li><a class="reference internal" href="#day-2-morning-9am-noon">Day 2: Morning (9am - noon)</a></li>
+<li><a class="reference internal" href="#day-2-afternoon-1-15pm-5pm">Day 2: Afternoon (1:15pm - 5pm)</a></li>
+<li><a class="reference internal" href="#undone">Undone</a></li>
+<li><a class="reference internal" href="#technical-information">Technical information</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="toc.html" title="Previous Chapter: Table of Contents"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Table of Cont...</span>
+    </a>
+  </li>
+  <li>
+    <a href="welcome.html" title="Next Chapter: Welcome!"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Welcome! &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/index.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12 content">
+      
+  
+  <div class="section" id="metagenomics-workshop-at-uc-santa-cruz">
+<span id="metagenomics-workshop-at-uc-santa-cruz"></span><h1>2017 Metagenomics workshop at UC Santa Cruz<a class="headerlink" href="#metagenomics-workshop-at-uc-santa-cruz" title="Permalink to this headline">¶</a></h1>
+<p>Instructors: Harriet Alexander, Phillip Brooks, and C. Titus Brown</p>
+<p>TAs: Luiz Irber, Shannon Joslin, Taylor Reiter</p>
+<p>These are the online materials for a metagenomics workshop hosted by
+Marilou Sison-Mangus at UC Santa Cruz on April 22nd and April 23rd, 2017.</p>
+<p><a class="reference external" href="https://public.etherpad-mozilla.org/p/UCSC_metagenomics">Etherpad</a></p>
+<div class="section" id="day-1-noon-to-5pm">
+<span id="day-1-noon-to-5pm"></span><h2>Day 1: Noon to 5pm<a class="headerlink" href="#day-1-noon-to-5pm" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="jetstream/boot.html">Logging into the cloud (XSEDE Jetstream)</a></p>
+<p><a class="reference external" href="quality.html">Evaluating your short-read data set quality</a></p>
+<p><a class="reference external" href="assemble.html">Assembling your short read data set with MEGAHIT</a></p>
+</div>
+<div class="section" id="day-2-morning-9am-noon">
+<span id="day-2-morning-9am-noon"></span><h2>Day 2: Morning (9am - noon)<a class="headerlink" href="#day-2-morning-9am-noon" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="day2-install.html">Software install for day 2</a></p>
+<p><a class="reference external" href="binning.html">Binning genomes out of your metagenome</a></p>
+<p><a class="reference external" href="sourmash.html">Quickly searching and comparing your samples with sourmash</a></p>
+</div>
+<div class="section" id="day-2-afternoon-1-15pm-5pm">
+<span id="day-2-afternoon-1-15pm-5pm"></span><h2>Day 2: Afternoon (1:15pm - 5pm)<a class="headerlink" href="#day-2-afternoon-1-15pm-5pm" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="prokka_tutorial.html">Annotating your short-read data set with Prokka</a></p>
+<p><a class="reference external" href="salmon_tutorial.html">Quantifying abundance across samples with Salmon</a></p>
+<p><a class="reference external" href="workflows.html">A brief discussion of workflows &amp; repeatability</a></p>
+<p><a class="reference external" href="whatnext.html">What next?</a></p>
+<p>Resources:</p>
+<p><a class="reference external" href="http://seqanswers.com/">SEQ Answers</a></p>
+<p><a class="reference external" href="https://www.biostars.org/">Biostars</a></p>
+<p><a class="reference external" href="http://www.datacarpentry.org/">Data Carpentry</a></p>
+<p><a class="reference external" href="http://ivory.idyll.org/dibsi/">DIB Summer Institute</a></p>
+</div>
+<div class="section" id="undone">
+<span id="undone"></span><h2>Undone<a class="headerlink" href="#undone" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="circos_tutorial.html">Circos for viz</a></p>
+<p>What next? Workflows; CAzy, KEGG; etc.</p>
+<!-- See [the complete table of contents](toc.html) --></div>
+<div class="section" id="technical-information">
+<span id="technical-information"></span><h2>Technical information<a class="headerlink" href="#technical-information" title="Permalink to this headline">¶</a></h2>
+<p>The github repository for this workshop is public at
+https://github.com/ngs-docs/2017-ucsc-metagenomics</p>
+</div>
+</div>
+
+
+
+<hr>
+
+<font size="-1"><b>LICENSE:</b>
+This documentation and all textual/graphic site content is released
+under <a href='http://creativecommons.org/publicdomain/zero/1.0/'>
+Creative Commons - 0
+(CC0)</a> -- <a href='https://github.com/ngs-docs/2017-ucsc-metagenomics'>fork @
+github</a>. </font>
+
+<hr>
+
+
+<!-- disqus commenting disabled; set disqus_shortname -->
+
+    </div>
+    
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Lab for Data Intensive Biology.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

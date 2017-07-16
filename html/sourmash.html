@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>A sourmash tutorial &mdash; 2017-dibsi-metagenomics 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="2017-dibsi-metagenomics 1.0 documentation" href="toc.html" />
+
+
+<style type="text/css">
+<!-- github-based editing disabled; set github_base_account
+     and github_project -->
+#editor-trap.toggled {
+  display: none;
+}
+</style>
+
+
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="toc.html">
+          2017-dibsi-metagenomics</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="toc.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">2017 Metagenomics workshop at UC Santa Cruz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetstream/boot.html">Booting a Jetstream Computer Instance for your use!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quality.html">Short read quality and trimming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assemble.html">Run the MEGAHIT assembler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prokka_tutorial.html">Annotation with Prokka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binning.html">Mapping and Binning a Metagenome Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="salmon_tutorial.html">Gene Abundance Estimation with Salmon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mapping.html">Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slice.html">Slicing and dicing with k-mers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circos_tutorial.html">Using and Installing Circos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow and repeatability discussion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DATA.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="INSTALL.html">Building this site on your own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">2017 / April / Metagenomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2-install.html">Day 2 - installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kmer_trimming.html">K-mer Spectral Error Trimming</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">A sourmash tutorial</a><ul>
+<li><a class="reference internal" href="#installing-sourmash">Installing sourmash</a></li>
+<li><a class="reference internal" href="#fingerprint-reads">Fingerprint reads</a></li>
+<li><a class="reference internal" href="#compare-reads-to-assemblies">Compare reads to assemblies</a></li>
+<li><a class="reference internal" href="#compare-many-samples">Compare many samples</a></li>
+<li><a class="reference internal" href="#what-s-in-my-metagenome">What&#8217;s in my metagenome?</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/sourmash.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12 content">
+      
+  
+  <div class="section" id="a-sourmash-tutorial">
+<span id="a-sourmash-tutorial"></span><h1>A sourmash tutorial<a class="headerlink" href="#a-sourmash-tutorial" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://sourmash.readthedocs.io/en/latest/">sourmash</a> is our lab&#8217;s
+implementation of an ultra-fast lightweight approach to
+nucleotide-level search and comparison, called MinHash.</p>
+<p>You can read some background about MinHash sketches in this paper:
+<a class="reference external" href="http://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x">Mash: fast genome and metagenome distance estimation using MinHash. Ondov BD, Treangen TJ, Melsted P, Mallonee AB, Bergman NH, Koren S, Phillippy AM. Genome Biol. 2016 Jun 20;17(1):132. doi: 10.1186/s13059-016-0997-x.</a></p>
+<div class="section" id="installing-sourmash">
+<span id="installing-sourmash"></span><h2>Installing sourmash<a class="headerlink" href="#installing-sourmash" title="Permalink to this headline">¶</a></h2>
+<p>To install sourmash, run:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>pip install https://github.com/dib-lab/sourmash/archive/2017-ucsc-metagenome.zip
+</pre></div>
+</div>
+<p>(Note, we are installing from <a class="reference external" href="https://github.com/dib-lab/sourmash/pull/188">a development branch</a>; many of the features below are not part of an official sourmash release yet.  They should be included in sourmash 2.0.)</p>
+</div>
+<div class="section" id="fingerprint-reads">
+<span id="fingerprint-reads"></span><h2>Fingerprint reads<a class="headerlink" href="#fingerprint-reads" title="Permalink to this headline">¶</a></h2>
+<p>Use case: how much do two (or more!) unassembled metagenomes resemble each
+other?</p>
+<p>Compute a scaled MinHash fingerprint from our reads:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>mkdir ~/sourmash
+cd ~/sourmash
+
+sourmash compute --scaled 10000 ~/mapping/SRR*.pe.fq -k 21,31
+</pre></div>
+</div>
+<p>Now, compare the two files at k=21:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourmash compare SRR*.sig -k 21
+</pre></div>
+</div>
+<p>or k=31:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourmash compare SRR*.sig -k 31
+</pre></div>
+</div>
+</div>
+<div class="section" id="compare-reads-to-assemblies">
+<span id="compare-reads-to-assemblies"></span><h2>Compare reads to assemblies<a class="headerlink" href="#compare-reads-to-assemblies" title="Permalink to this headline">¶</a></h2>
+<p>Use case: how much of the read content is contained in the assembly?</p>
+<p>Fingerprint the assembly:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourmash compute --scaled 10000 -k 21,31 ~/mapping/subset_assembly.fa
+</pre></div>
+</div>
+<p>and now evaluate <em>containment</em>, that is, what fraction of the read content is
+contained in the assembly:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourmash search -k 21 SRR1976948.abundtrim.subset.pe.fq.sig \
+    subset_assembly.fa.sig  --containment
+</pre></div>
+</div>
+<p>and you should see:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>1 matches; showing 3:
+         /home/titus/mapping/subset_assembly.fa          0.573   subset_assembly.fa.sig
+</pre></div>
+</div>
+<p>Try the reverse - why is it bigger?</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourmash search -k 21 subset_assembly.fa.sig \
+    SRR1976948.abundtrim.subset.pe.fq.sig --threshold=0.0 --containment
+</pre></div>
+</div>
+<p>what do you get if you do this with the other set of reads?</p>
+</div>
+<div class="section" id="compare-many-samples">
+<span id="compare-many-samples"></span><h2>Compare many samples<a class="headerlink" href="#compare-many-samples" title="Permalink to this headline">¶</a></h2>
+<p>Adjust plotting (this is a bug in sourmash :) &#8211;</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>echo &#39;backend : Agg&#39; &gt; matplotlibrc
+</pre></div>
+</div>
+<p>Do a comparison:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourmash compare SRR*.sig subset*.sig -o comparison
+</pre></div>
+</div>
+<p>and then plot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourmash plot --pdf comparison
+</pre></div>
+</div>
+<p>which will produce a file <code class="docutils literal"><span class="pre">comparison.matrix.pdf</span></code> and <code class="docutils literal"><span class="pre">comparison.dendro.pdf</span></code>
+that you can grab view your Jupyter Notebook console.</p>
+</div>
+<div class="section" id="what-s-in-my-metagenome">
+<span id="what-s-in-my-metagenome"></span><h2>What&#8217;s in my metagenome?<a class="headerlink" href="#what-s-in-my-metagenome" title="Permalink to this headline">¶</a></h2>
+<p>Download and unpack the k=21 RefSeq index described in
+<a class="reference external" href="http://ivory.idyll.org/blog/2016-sourmash-sbt-more.html">CTB&#8217;s blog post</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>curl -O http://spacegraphcats.ucdavis.edu.s3.amazonaws.com/microbe-sbt-k21-2016-11-27.tar.gz
+tar xzf microbe-sbt-k21-2016-11-27.tar.gz
+</pre></div>
+</div>
+<p>This produces a file <code class="docutils literal"><span class="pre">microbes.sbt.json</span></code> and a whole bunch of hidden
+files in the directory <code class="docutils literal"><span class="pre">.sbt.microbes</span></code>.  This is an index of about 60,000
+microbial genomes from RefSeq.</p>
+<p>Next, run the &#8216;gather&#8217; command to see what&#8217;s in there &#8211;</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourmash sbt_gather -k 21 microbes subset_assembly.fa.sig
+</pre></div>
+</div>
+<p>and you should get:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Final composition (sorted by percent of original query):
+
+p_query p_genome
+  2.4    14.3   NC_010003.1 Petrotoga mobilis SJ95, complete genome
+  0.5     1.6   NC_017934.1 Mesotoga prima MesG1.Ag.4.2, complete genome
+  3.0%          (percent of query identified)
+</pre></div>
+</div>
+<p>If you go to
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA278302">the SRA information</a>
+for this project, you&#8217;ll see that Petrotoga and Mesotoga are both in
+there - yay!  Of course, in this case we&#8217;re looking at largely unknown
+critters (3% at most is in genbank!) so we wouldn&#8217;t expect many
+matches.</p>
+</div>
+</div>
+
+
+
+<hr>
+
+<font size="-1"><b>LICENSE:</b>
+This documentation and all textual/graphic site content is released
+under <a href='http://creativecommons.org/publicdomain/zero/1.0/'>
+Creative Commons - 0
+(CC0)</a> -- <a href='https://github.com/ngs-docs/2017-ucsc-metagenomics'>fork @
+github</a>. </font>
+
+<hr>
+
+
+<!-- disqus commenting disabled; set disqus_shortname -->
+
+    </div>
+    
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Lab for Data Intensive Biology.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

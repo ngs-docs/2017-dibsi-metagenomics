@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Booting a Jetstream Computer Instance for your use! &mdash; 2017-dibsi-metagenomics 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="2017-dibsi-metagenomics 1.0 documentation" href="../toc.html" />
+    <link rel="next" title="Short read quality and trimming" href="../quality.html" />
+    <link rel="prev" title="Welcome!" href="../welcome.html" />
+
+
+<style type="text/css">
+<!-- github-based editing disabled; set github_base_account
+     and github_project -->
+#editor-trap.toggled {
+  display: none;
+}
+</style>
+
+
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../toc.html">
+          2017-dibsi-metagenomics</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../toc.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">2017 Metagenomics workshop at UC Santa Cruz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../welcome.html">Welcome!</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Booting a Jetstream Computer Instance for your use!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quality.html">Short read quality and trimming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assemble.html">Run the MEGAHIT assembler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prokka_tutorial.html">Annotation with Prokka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binning.html">Mapping and Binning a Metagenome Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../salmon_tutorial.html">Gene Abundance Estimation with Salmon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mapping.html">Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../slice.html">Slicing and dicing with k-mers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circos_tutorial.html">Using and Installing Circos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">Workflow and repeatability discussion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DATA.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../INSTALL.html">Building this site on your own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">2017 / April / Metagenomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2-install.html">Day 2 - installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kmer_trimming.html">K-mer Spectral Error Trimming</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Booting a Jetstream Computer Instance for your use!</a><ul>
+<li><a class="reference internal" href="#request-to-log-in-to-the-jetstream-portal">Request to log in to the Jetstream Portal</a></li>
+<li><a class="reference internal" href="#use-xsede">Use &#8220;XSEDE&#8221;</a></li>
+<li><a class="reference internal" href="#fill-in-the-username-and-password-and-click-sign-in">Fill in the username and password and click &#8220;Sign in&#8221;</a></li>
+<li><a class="reference internal" href="#select-projects-and-create-new-project">Select Projects and &#8220;Create New Project&#8221;</a></li>
+<li><a class="reference internal" href="#name-the-project-for-yourself-click-create">Name the project for yourself, click &#8220;create&#8221;</a></li>
+<li><a class="reference internal" href="#select-the-newly-created-project">Select the newly created project</a></li>
+<li><a class="reference internal" href="#within-the-project-select-new">Within the project, select &#8220;new&#8221;</a></li>
+<li><a class="reference internal" href="#find-the-ubuntu-14-04-3-image-click-on-it">Find the &#8220;Ubuntu 14.04.3&#8221; image, click on it</a></li>
+<li><a class="reference internal" href="#name-it-something-simple-and-select-m1-medium">Name it something simple and select &#8216;m1.medium&#8217;</a></li>
+<li><a class="reference internal" href="#wait-for-it-to-become-active">Wait for it to become active</a></li>
+<li><a class="reference internal" href="#click-on-your-new-instance-to-get-more-information">Click on your new instance to get more information!</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="../welcome.html" title="Previous Chapter: Welcome!"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Welcome!</span>
+    </a>
+  </li>
+  <li>
+    <a href="../quality.html" title="Next Chapter: Short read quality and trimming"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Short read qu... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/jetstream/boot.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12 content">
+      
+  
+  <div class="section" id="booting-a-jetstream-computer-instance-for-your-use">
+<h1>Booting a Jetstream Computer Instance for your use!<a class="headerlink" href="#booting-a-jetstream-computer-instance-for-your-use" title="Permalink to this headline">¶</a></h1>
+<p>What we&#8217;re going to do here is walk through starting up an running
+computer (an &#8220;instance&#8221;) on the Jetstream service.</p>
+<p>Below, we&#8217;ve provided screenshots of the whole process. You can click
+on them to zoom in a bit.  The important areas to fill in are circled
+in red.</p>
+<p>Some of the details may vary &#8211; for example, if you have your own XSEDE
+account, you may want to log in with that &#8211; and the name of the operating
+system or &#8220;image&#8221; may also vary from &#8220;Ubuntu 14.04.03&#8221; depending on the
+workshop.</p>
+<hr class="docutils" />
+<p>First, go to the Jetstream application at <a class="reference external" href="https://use.jetstream-cloud.org/application">https://use.jetstream-cloud.org/application</a>.</p>
+<p>Now:</p>
+<div class="section" id="request-to-log-in-to-the-jetstream-portal">
+<h2>Request to log in to the Jetstream Portal<a class="headerlink" href="#request-to-log-in-to-the-jetstream-portal" title="Permalink to this headline">¶</a></h2>
+<p>Click the login link in the upper right.</p>
+<a class=""
+               data-lightbox="group-c2c3c58c-88ee-406c-93eb-62eb8958e6a8"
+               href="../_images/login-13.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-13.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="use-xsede">
+<h2>Use &#8220;XSEDE&#8221;<a class="headerlink" href="#use-xsede" title="Permalink to this headline">¶</a></h2>
+<p>Choose &#8220;XSEDE&#8221; as your account provider (it should be the default) and click
+on &#8220;Continue&#8221;.</p>
+<a class=""
+               data-lightbox="group-b4c0e833-1bff-41c0-9afc-0adb93768369"
+               href="../_images/login-21.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-21.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="fill-in-the-username-and-password-and-click-sign-in">
+<h2>Fill in the username and password and click &#8220;Sign in&#8221;<a class="headerlink" href="#fill-in-the-username-and-password-and-click-sign-in" title="Permalink to this headline">¶</a></h2>
+<p>Fill in the username, which is &#8216;tx160085&#8217; for the UCSC workshop,
+and then enter the password (which we will tell you in class).</p>
+<a class=""
+               data-lightbox="group-82904402-eace-4a69-a6e5-aa32c32fa552"
+               href="../_images/login-31.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-31.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="select-projects-and-create-new-project">
+<h2>Select Projects and &#8220;Create New Project&#8221;<a class="headerlink" href="#select-projects-and-create-new-project" title="Permalink to this headline">¶</a></h2>
+<p>Now, this is something you only need to once if you have your own
+account - but if you&#8217;re using a shared account like tx160085, you will
+need a way to keep your computers separate from everyone else&#8217;s.</p>
+<p>We&#8217;ll do this with Projects, which give you a bit of a workspace in which
+to keep things that belong to &#8220;you&#8221;.</p>
+<p>Click on &#8220;Projects&#8221; up along the top.</p>
+<a class=""
+               data-lightbox="group-a918b859-f00e-431d-b87f-5c0f3bf67cb8"
+               href="../_images/login-51.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-51.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="name-the-project-for-yourself-click-create">
+<h2>Name the project for yourself, click &#8220;create&#8221;<a class="headerlink" href="#name-the-project-for-yourself-click-create" title="Permalink to this headline">¶</a></h2>
+<p>Enter your name into the Project Name, and something simple like &#8220;UCSC&#8221;
+into the description. Then click &#8216;create&#8217;.</p>
+<a class=""
+               data-lightbox="group-0255bd59-df75-4974-acbc-c356fb93b396"
+               href="../_images/login-61.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-61.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="select-the-newly-created-project">
+<h2>Select the newly created project<a class="headerlink" href="#select-the-newly-created-project" title="Permalink to this headline">¶</a></h2>
+<p>Click on your new project!</p>
+<a class=""
+               data-lightbox="group-b299471f-4d62-4342-a46e-839ead14169a"
+               href="../_images/login-71.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-71.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="within-the-project-select-new">
+<h2>Within the project, select &#8220;new&#8221;<a class="headerlink" href="#within-the-project-select-new" title="Permalink to this headline">¶</a></h2>
+<p>Now, select &#8216;New&#8217; to start up a new machine.</p>
+<a class=""
+               data-lightbox="group-4d3a4cdb-12b1-4ac9-b9eb-6f3902babf90"
+               href="../_images/login-81.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-81.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="find-the-ubuntu-14-04-3-image-click-on-it">
+<h2>Find the &#8220;Ubuntu 14.04.3&#8221; image, click on it<a class="headerlink" href="#find-the-ubuntu-14-04-3-image-click-on-it" title="Permalink to this headline">¶</a></h2>
+<p>Enter &#8220;Ubuntu 14.04.3&#8221; into the search bar - make sure it&#8217;s from
+March 22nd, 2017.</p>
+<a class=""
+               data-lightbox="group-901abf12-478c-4921-9723-b5067efe634e"
+               href="../_images/login-91.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-91.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="name-it-something-simple-and-select-m1-medium">
+<h2>Name it something simple and select &#8216;m1.medium&#8217;<a class="headerlink" href="#name-it-something-simple-and-select-m1-medium" title="Permalink to this headline">¶</a></h2>
+<p>Change the name after what we&#8217;re doing - &#8220;UCSC workshop&#8221;, for example,
+but it doesn&#8217;t matter &#8211; and select &#8216;m1.medium&#8217;.</p>
+<a class=""
+               data-lightbox="group-0456a6bf-2e33-4797-ad38-125682ffc686"
+               href="../_images/login-101.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-101.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="wait-for-it-to-become-active">
+<h2>Wait for it to become active<a class="headerlink" href="#wait-for-it-to-become-active" title="Permalink to this headline">¶</a></h2>
+<p>It will now be booting up! This will take 2-10 minutes, depending.
+Just wait! Don&#8217;t reload or anything.</p>
+<a class=""
+               data-lightbox="group-b5a7c9ce-ac79-4902-b531-43fc4bc87cf4"
+               href="../_images/login-111.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-111.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="click-on-your-new-instance-to-get-more-information">
+<h2>Click on your new instance to get more information!<a class="headerlink" href="#click-on-your-new-instance-to-get-more-information" title="Permalink to this headline">¶</a></h2>
+<p>Now, you can either click &#8220;Open Web Shell&#8221;, <em>or</em>, if you know how to use ssh,
+you can ssh in as user &#8216;tx160085&#8217; on the IP address of the machine - see
+circled information below.  Note that you&#8217;ll need to use the private key
+file we sent around to everyone in last the pre-workshop e-mail.</p>
+<a class=""
+               data-lightbox="group-9d98fc77-38ab-4e24-bee4-c8b6c5219c46"
+               href="../_images/login-121.png"
+               title=""
+               data-title=""
+               ><img src="../_images/login-121.png"
+                     class=""
+                     width="20%"
+                     height="auto"
+                     alt=""/>
+                </a><hr class="docutils" />
+<p>Next: <a class="reference internal" href="../quality.html"><em>Short read quality and trimming</em></a></p>
+</div>
+</div>
+
+
+
+<hr>
+
+<font size="-1"><b>LICENSE:</b>
+This documentation and all textual/graphic site content is released
+under <a href='http://creativecommons.org/publicdomain/zero/1.0/'>
+Creative Commons - 0
+(CC0)</a> -- <a href='https://github.com/ngs-docs/2017-ucsc-metagenomics'>fork @
+github</a>. </font>
+
+<hr>
+
+
+<!-- disqus commenting disabled; set disqus_shortname -->
+
+    </div>
+    
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Lab for Data Intensive Biology.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Annotation with Prokka &mdash; 2017-dibsi-metagenomics 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="2017-dibsi-metagenomics 1.0 documentation" href="toc.html" />
+    <link rel="next" title="Mapping and Binning a Metagenome Assembly" href="binning.html" />
+    <link rel="prev" title="Run the MEGAHIT assembler" href="assemble.html" />
+
+
+<style type="text/css">
+<!-- github-based editing disabled; set github_base_account
+     and github_project -->
+#editor-trap.toggled {
+  display: none;
+}
+</style>
+
+
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="toc.html">
+          2017-dibsi-metagenomics</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="toc.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">2017 Metagenomics workshop at UC Santa Cruz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetstream/boot.html">Booting a Jetstream Computer Instance for your use!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quality.html">Short read quality and trimming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assemble.html">Run the MEGAHIT assembler</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Annotation with Prokka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binning.html">Mapping and Binning a Metagenome Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="salmon_tutorial.html">Gene Abundance Estimation with Salmon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mapping.html">Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slice.html">Slicing and dicing with k-mers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circos_tutorial.html">Using and Installing Circos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow and repeatability discussion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DATA.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="INSTALL.html">Building this site on your own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">2017 / April / Metagenomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2-install.html">Day 2 - installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kmer_trimming.html">K-mer Spectral Error Trimming</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Annotation with Prokka</a><ul>
+<li><a class="reference internal" href="#installing-prokka">Installing Prokka</a></li>
+<li><a class="reference internal" href="#running-prokka">Running Prokka</a></li>
+<li><a class="reference internal" href="#questions">Questions?</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="assemble.html" title="Previous Chapter: Run the MEGAHIT assembler"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Run the MEGAH...</span>
+    </a>
+  </li>
+  <li>
+    <a href="binning.html" title="Next Chapter: Mapping and Binning a Metagenome Assembly"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Mapping and B... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/prokka_tutorial.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12 content">
+      
+  
+  <div class="section" id="annotation-with-prokka">
+<h1>Annotation with Prokka<a class="headerlink" href="#annotation-with-prokka" title="Permalink to this headline">¶</a></h1>
+<p>Prokka is a tool that facilitates the fast annotation of prokaryotic genomes.</p>
+<p>The goals of this tutorial are to:</p>
+<ul class="simple">
+<li>Install Prokka</li>
+<li>Use Prokka to annotate our genomes</li>
+</ul>
+<div class="section" id="installing-prokka">
+<h2>Installing Prokka<a class="headerlink" href="#installing-prokka" title="Permalink to this headline">¶</a></h2>
+<p>Download and extract the latest version of prokka:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd ~/
+wget http://www.vicbioinformatics.com/prokka-1.11.tar.gz
+tar -xvzf prokka-1.11.tar.gz
+</pre></div>
+</div>
+<p>We also will need some dependencies such as bioperl:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sudo apt-get -y install bioperl libdatetime-perl libxml-simple-perl libdigest-md5-perl
+</pre></div>
+</div>
+<p>and we need an XML package from perl</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sudo bash
+export PERL_MM_USE_DEFAULT=1
+export PERL_EXTUTILS_AUTOINSTALL=&quot;--defaultdeps&quot;
+perl -MCPAN -e &#39;install &quot;XML::Simple&quot;&#39;
+exit
+</pre></div>
+</div>
+<p>Now, you should be able to add Prokka to your <code class="docutils literal"><span class="pre">$PATH</span></code> and set up the index for the sequence database:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>export PATH=$PATH:$HOME/prokka-1.11/bin
+prokka --setupdb
+</pre></div>
+</div>
+<p>Prokka should be good to go now&#8211; you can check to make sure that all is well by typing <code class="docutils literal"><span class="pre">prokka</span></code>. This should print the help screen with all available options. You can find out more about Prokka databases <a class="reference external" href="https://github.com/tseemann/prokka#Databases">here</a>.</p>
+</div>
+<div class="section" id="running-prokka">
+<h2>Running Prokka<a class="headerlink" href="#running-prokka" title="Permalink to this headline">¶</a></h2>
+<p>Make a new directory for the annotation:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd ~/
+mkdir annotation
+cd annotation
+</pre></div>
+</div>
+<p>Link the metagenome assembly file into this directory:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>ln -fs ~/mapping/subset_assembly.fa .
+</pre></div>
+</div>
+<p>Now it is time to run Prokka! There are tons of different ways to specialize the running of Prokka. We are going to keep it simple for now, though. It will take a little bit to run.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>prokka subset_assembly.fa --outdir prokka_annotation --prefix metagG --metagenome
+</pre></div>
+</div>
+<p>This will generate a new folder called <code class="docutils literal"><span class="pre">prokka_annotation</span></code> in which will be a series of files, which are detailed <a class="reference external" href="https://github.com/tseemann/prokka/blob/master/README.md#output-files">here</a>.</p>
+<p>In particular, we will be using the <code class="docutils literal"><span class="pre">*.ffn</span></code> file to assess the relative read coverage within our metagenomes across the predicted genomic regions.</p>
+</div>
+<div class="section" id="questions">
+<h2>Questions?<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>What can I annotate with prokka?</li>
+<li>Alternatives?</li>
+<li>How do I submit my annotated files to <a class="reference external" href="https://github.com/tseemann/prokka/blob/master/README.md#NCBIGenbanksubmitter">Genbank? EBI?</a>?</li>
+<li>Why is it called Prokka?</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.vicbioinformatics.com/software.prokka.shtml">http://www.vicbioinformatics.com/software.prokka.shtml</a></li>
+<li><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/24642063">https://www.ncbi.nlm.nih.gov/pubmed/24642063</a></li>
+<li><a class="reference external" href="https://github.com/tseemann/prokka/blob/master/README.md">https://github.com/tseemann/prokka/blob/master/README.md</a></li>
+</ul>
+</div>
+</div>
+
+
+
+<hr>
+
+<font size="-1"><b>LICENSE:</b>
+This documentation and all textual/graphic site content is released
+under <a href='http://creativecommons.org/publicdomain/zero/1.0/'>
+Creative Commons - 0
+(CC0)</a> -- <a href='https://github.com/ngs-docs/2017-ucsc-metagenomics'>fork @
+github</a>. </font>
+
+<hr>
+
+
+<!-- disqus commenting disabled; set disqus_shortname -->
+
+    </div>
+    
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Lab for Data Intensive Biology.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>
