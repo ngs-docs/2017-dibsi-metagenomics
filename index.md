@@ -1,26 +1,33 @@
 # 2017 DIBSI Metagenomics Workshop at UC Davis
 
-Lead Instructor: Harriet Alexander
+Instructors: Harriet Alexander and C. Titus Brown
 
-Instructors: Phillip Brooks, and C. Titus Brown
+TAs: Jessica Blanton, Adelaide Rhodes, Shawn Higdon, Jessica Mizzi, Phillip Brooks
+Veronika Kivenson  
 
 These are the online materials for the environmental metagenomics workshop run as part of the Data Intensive Biology Summer Institute at UC Davis ([DIBSI](http://ivory.idyll.org/dibsi/)).
 
 We will be using HackMD to take collective notes throughout the course:
 [HackMD](https://hackmd.io/MzBmE4FYCMA4HYC08BMtSICwFMCGA2RWTfXRSABnAsxXAGNhJRcg).
 
-## Day 1: Noon to 5pm
-
-[Logging into the cloud (XSEDE Jetstream)](jetstream/boot.html)
-
-[Evaluating your short-read data set quality](quality.html)
-
-[Assembling your short read data set with MEGAHIT](assemble.html)
-
+## Monday, Day 1:
+#### 11am: Meet in Valley Hall (room TBA), setup, and introductions.
+#### Noon - 1:15: Lunch
+#### 1:15 - 2pm: Group meeting with all of DIBSI
+#### 2pm - 4pm:
+ * [Logging into the cloud (XSEDE Jetstream)](jetstream/boot.html)
 
 
-## Day 2: Morning (9am - noon)
 
+Homework:
+## Tuesday, Day 2:
+#### 9am - Noon:
+* [Introduction to dataset we will be using]()
+* [Evaluating your short-read data set quality](quality.html)
+
+#### [Assembling your short read data set with MEGAHIT](assemble.html)
+Morning (9am - noon)
+####
 [Software install for day 2](day2-install.html)
 
 [Binning genomes out of your metagenome](binning.html)
