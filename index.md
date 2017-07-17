@@ -1,40 +1,56 @@
-# 2017 Metagenomics workshop at UC Santa Cruz
+# 2017 DIBSI Metagenomics Workshop at UC Davis
 
-Instructors: Harriet Alexander, Phillip Brooks, and C. Titus Brown
+Lead Instructors: Harriet Alexander and C. Titus Brown
 
-TAs: Luiz Irber, Shannon Joslin, Taylor Reiter
+Co-Instructors: Jessica Blanton, Adelaide Rhodes, Shawn Higdon, Jessica Mizzi, Phillip Brooks, Veronika Kivenson  
 
-These are the online materials for a metagenomics workshop hosted by
-Marilou Sison-Mangus at UC Santa Cruz on April 22nd and April 23rd, 2017.
+These are the online materials for the environmental metagenomics workshop run as part of the Data Intensive Biology Summer Institute at UC Davis ([DIBSI](http://ivory.idyll.org/dibsi/)).
 
-[Etherpad](https://public.etherpad-mozilla.org/p/UCSC_metagenomics)
+We will be using HackMD to take collective notes throughout the course:
+[HackMD](https://hackmd.io/MzBmE4FYCMA4HYC08BMtSICwFMCGA2RWTfXRSABnAsxXAGNhJRcg).
 
-## Day 1: Noon to 5pm
+## Monday, Day 1:
+11am: Meet in Valley Hall (room TBA), setup, and introductions.
+* [Logging into the cloud (XSEDE Jetstream)](jetstream/boot.html)
 
-[Logging into the cloud (XSEDE Jetstream)](jetstream/boot.html)
+Noon - 1:15: Lunch
 
-[Evaluating your short-read data set quality](quality.html)
+1:15 - 2pm: Group meeting with all of DIBSI
 
-[Assembling your short read data set with MEGAHIT](assemble.html)
+2pm - 4pm:
+ * [Working on Command Line](command-line.html)
+ * [Command Line Blast](running-command-line-blast.html)
+ 
+Homework: *Skim* the [Critical Assessment of Metagenome Interpretation (CAMI) Paper](http://www.biorxiv.org/content/biorxiv/early/2017/01/09/099127.full.pdf)
 
+## Tuesday, Day 2:
+9am - Noon:
+* [Introduction to dataset we will be using]()
+* [Evaluating your short-read data set quality](quality.html)
+Noon - 1:15: Lunch
 
+1:15 - 4pm:
+* [Assembling your short read data set with MEGAHIT](assemble.html)
+* Trying quality trimming and assembly with your own data!
 
-## Day 2: Morning (9am - noon)
+## Wednesday, Day 3:
+9am - Noon:
+* [Quickly searching and comparing your samples with sourmash](sourmash.html)
+* [Binning genomes out of your metagenome](binning.html)
 
-[Software install for day 2](day2-install.html)
+Noon - 1:15: Lunch
 
-[Binning genomes out of your metagenome](binning.html)
+1:15 - 4pm:
+* [Annotating your dataset with Prokka](prokka_tutorial.html)
+* [Quantifying abundance across samples with Salmon](salmon_tutorial.html)
+* [Circos for visualization](circos_tutorial.html)
 
-[Quickly searching and comparing your samples with sourmash](sourmash.html)
+## Thursday, Day 4:
+9am - Noon:
+* [A brief discussion of workflows & repeatability](workflows.html)
+* Anvi'o
 
-
-## Day 2: Afternoon (1:15pm - 5pm)
-
-[Annotating your short-read data set with Prokka](prokka_tutorial.html)
-
-[Quantifying abundance across samples with Salmon](salmon_tutorial.html)
-
-[A brief discussion of workflows & repeatability](workflows.html)
+## Friday, Optional Day 5: TBD (plotting, visualization, jupyter notebooks...)
 
 [What next?](whatnext.html)
 
@@ -50,11 +66,7 @@ Resources:
 
 ## Undone
 
-[Circos for viz](circos_tutorial.html)
-
-What next? Workflows; CAzy, KEGG; etc.
-
-<!-- See [the complete table of contents](toc.html) -->
+See [the complete table of contents](toc.html)
 
 ## Technical information
 

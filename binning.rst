@@ -83,26 +83,17 @@ If this does not work, please follow these instructions from the first day.
 
 #Install jupyter notebooks::
 
-  sudo apt-get -y update && \
-  sudo apt-get install -y python3.5-dev python3.5-venv make \
-      libc6-dev g++ zlib1g-dev
+```
 
+python3.5 -m venv ~/py3
+. ~/py3/bin/activate
+pip install -U pip
+pip install -U Cython
+pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
 
-this installs Python 3.5.
+pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
 
-Now, create a local software install and populate it with Jupyter and
-other dependencies::
-
-  python3.5 -m venv ~/py3
-  . ~/py3/bin/activate
-  pip install -U pip
-  pip install -U Cython
-  pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
-
-  pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
-
-  source ~/.bashrc
-
+```
 Then update your environment and install khmer::
 
    pip install -U setuptools
