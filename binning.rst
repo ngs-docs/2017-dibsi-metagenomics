@@ -82,20 +82,25 @@ You should see a bunch of text and the notebook remains open until you hit Contr
 #Use these directions if you DID terminate your instance after the short-read quality control exercise
 -----------------------------------------------------------------------------------------------------------
 
-#Install jupyter notebooks::
+#Install jupyter notebooks, first by installing python3.5::
 
-sudo apt-get -y update && \
-sudo apt-get install -y python3.5-dev python3.5-venv make \
-    libc6-dev g++ zlib1g-dev
+  sudo apt-get -y update && \
+  sudo apt-get install -y python3.5-dev python3.5-venv make \
+      libc6-dev g++ zlib1g-dev
+      
+#Set up the python3.5 environment and add modules to create the notebook::
 
-python3.5 -m venv ~/py3
-. ~/py3/bin/activate
-pip install -U pip
-pip install -U Cython
-pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
+  python3.5 -m venv ~/py3
+  . ~/py3/bin/activate
+  pip install -U pip
+  pip install -U Cython
+  pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
 
-pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
+  pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
 
+#Configure the jupyter notebook
+
+```
 jupyter notebook --generate-config
 
 cat >>~/.jupyter/jupyter_notebook_config.py <<EOF
@@ -106,8 +111,9 @@ c.NotebookApp.password = u'sha1:5d813e5d59a7:b4e430cf6dbd1aad04838c6e9cf684f4d76
 c.NotebookApp.port = 8000
 
 EOF
+```
 
-jupyter notebook &
+#We return to the location of our python notebook and start the program in the background.
 
 First, return to the location where we downloaded the notebook.
 
@@ -115,7 +121,7 @@ First, return to the location where we downloaded the notebook.
 
   cd ~
 
-On Jetstream, you can get the Web page address by executing:
+On Jetstream, you can get the Web page address by executing::
 
   echo http://$(hostname):8000/
 
@@ -138,6 +144,7 @@ Click on the notebook to start the program.
 
 Click inside the code boxes and hit Shift+Enter to run the code in each code box.  The results will appear below each code box.
 
+If you want to return to the shell and continue running bash commands, the jupyter notebook will remain open in the background due to the "&"
 
 ----------------------------------------------------------------------------------------------------------------------------
 
