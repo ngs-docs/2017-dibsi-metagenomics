@@ -9,6 +9,8 @@ Tutorials:
    index
    welcome
    jetstream/boot
+   command-line
+   running-command-line-blast
    quality
    assemble
    prokka_tutorial
