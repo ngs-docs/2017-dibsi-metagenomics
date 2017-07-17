@@ -16,7 +16,7 @@ We will be using HackMD to take collective notes throughout the course:
 #### 1:15 - 2pm: Group meeting with all of DIBSI
 #### 2pm - 4pm:
  * [Logging into the cloud (XSEDE Jetstream)](jetstream/boot.html)
-
+ * [Command Line Blast](running-command-line-blast.html)
 
 
 Homework:
