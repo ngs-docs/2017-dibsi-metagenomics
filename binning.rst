@@ -45,6 +45,7 @@ We will also need the assembly; rather than rebuilding it, you can download a co
   curl -O https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/subset_assembly.fa.gz
   gunzip subset_assembly.fa.gz
 
+----------------------------------------------------------------------------------------------------------------------------
 Optional: look at tetramer clustering
 -------------------------------------
 
@@ -55,18 +56,96 @@ that, we'll need `this notebook <https://github.com/ngs-docs/2017-ucsc-metagenom
   
   cd ~/
   curl -O https://raw.githubusercontent.com/ngs-docs/2017-ucsc-metagenomics/master/files/sourmash_tetramer.ipynb
-  cd -
+  cd ~
 
-and during the mapping we'll load this notebook in the Jupyter notebook
-console.  Note, the address of that will be::
+
+To have this work, you will need to have the Anaconda and khmer tools from the first day installed.
+
+::
+
+  echo http://$(hostname):8000/  
+  
+Copy the full path and paste it into a new browser tab AFTER typing the following into the terminal
+
+::
+
+  jupyter notebook &
+ 
+ Note, the password is 'davis'.
+ 
+ You should see a bunch of text and the notebook remains open until you hit Control-C
+ 
+ .. thumbnail:: ./files/jupyter_working.png
+   :width: 50%
+ 
+If this does not work, please follow these instructions from the first day.
+
+Run::
+
+  sudo apt-get -y update && \
+  sudo apt-get -y install trimmomatic fastqc python-pip \
+     samtools zlib1g-dev ncurses-dev python-dev
+
+Install anaconda::
+
+   curl -O https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
+   bash Anaconda3-4.2.0-Linux-x86_64.sh
+
+Then update your environment and install khmer::
+
+   source ~/.bashrc
+   
+   pip install -U setuptools
+   pip install -U pip
+   pip install -U Cython
+   pip install https://github.com/dib-lab/khmer/archive/master.zip
+   
+Running Jupyter Notebook
+------------------------
+
+Let's also run a Jupyter Notebook. First, configure it a teensy bit
+more securely, and also have it run in the background::
+
+  jupyter notebook --generate-config
+  
+  cat >>~/.jupyter/jupyter_notebook_config.py <<EOF
+  c = get_config()
+  c.NotebookApp.ip = '*'
+  c.NotebookApp.open_browser = False
+  c.NotebookApp.password = u'sha1:5d813e5d59a7:b4e430cf6dbd1aad04838c6e9cf684f4d76e245c'
+  c.NotebookApp.port = 8000
+
+  EOF
+
+Now, run! ::
+
+  jupyter notebook &
+
+On Jetstream, you can get the Web page address by executing:
 
   echo http://$(hostname):8000/
+
+Note, the password is 'davis'.
+
+.. note::
+
+   If your network blocks port 8000, you can run::
+
+       ssh -N -f -L localhost:8000:localhost:8000 username@remotehost
+
+   to tunnel the remote Jupyter notebook server over SSH.
+
+----------------------------------------------------------------------------------------------------------------------------
+
 
 ...back to mapping!
 
 Mapping the reads
 -----------------
+::
 
+  cd ~/mapping
+  
 First, we will need to to index the megahit assembly::
 
   bwa index subset_assembly.fa
