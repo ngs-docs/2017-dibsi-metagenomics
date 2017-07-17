@@ -15,7 +15,7 @@ We will be using HackMD to take collective notes throughout the course:
 Noon - 1:15: Lunch
 1:15 - 2pm: Group meeting with all of DIBSI
 2pm - 4pm:
- * [Getting used to command line]
+ * [Getting used to command line](command-line.html)
  * [Command Line Blast](running-command-line-blast.html)
 Homework: *Skim* the [Critical Assessment of Metagenome Interpretation (CAMI) Paper](http://www.biorxiv.org/content/biorxiv/early/2017/01/09/099127.full.pdf)
 
