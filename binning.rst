@@ -143,6 +143,8 @@ Click inside the code boxes and hit Shift+Enter to run the code in each code box
 
 If you want to return to the shell and continue running bash commands, the jupyter notebook will remain open in the background due to the "&"
 
+Just hit enter in the shell window to regenerate the command line prompty.  Your notebook will remain open.
+
 ----------------------------------------------------------------------------------------------------------------------------
 
 
