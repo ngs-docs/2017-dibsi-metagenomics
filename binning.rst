@@ -75,6 +75,9 @@ Copy the full path and paste it into a new browser tab AFTER typing the followin
  
  You should see a bunch of text and the notebook remains open until you hit Control-C
  
+ .. thumbnail:: ./files/jupyter_working.png
+   :width: 50%
+ 
 If this does not work, please follow these instructions from the first day.
 
 Run::
