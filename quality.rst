@@ -12,29 +12,32 @@ something like this::
 
 this is the command prompt.
 
-Installing some software
+Installing software for the workshop
 ------------------------
 
-Run::
+First, let's install software for short read quality and trimming::
 
   sudo apt-get -y update && \
   sudo apt-get -y install trimmomatic fastqc python-pip \
      samtools zlib1g-dev ncurses-dev python-dev
 
-Install anaconda::
-
-   curl -O https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
-   bash Anaconda3-4.2.0-Linux-x86_64.sh
-
-Then update your environment and install khmer::
-
-   source ~/.bashrc
+Next, update your environment and install python virtual environments::
    
-   pip install -U setuptools
-   pip install -U pip
-   pip install -U Cython
-   pip install https://github.com/dib-lab/khmer/archive/master.zip
-   
+sudo apt-get -y update && \
+sudo apt-get install -y python3.5-dev python3.5-venv make \
+    libc6-dev g++ zlib1g-dev
+
+Now, create a python 3.5 virtual environment and install more software::
+
+python3.5 -m venv ~/py3
+. ~/py3/bin/activate
+pip install -U pip
+pip install -U Cython
+pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
+
+pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
+
+
 Running Jupyter Notebook
 ------------------------
 
@@ -56,9 +59,11 @@ Now, run! ::
 
   jupyter notebook &
 
-On Jetstream, you can get the Web page address by executing:
+On the Jetstream webshell, you can get the Web page address for the jupyter notebook you just launched. Press enter, then execute ::
 
   echo http://$(hostname):8000/
+
+Copy the output from echo and paste it into the url bar of a new tab in your web browser.
 
 Note, the password is 'davis'.
 
