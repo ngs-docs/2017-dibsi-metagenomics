@@ -278,6 +278,7 @@ VizBin can run in OSX or Linux but is very hard to install on Windows. To simpli
 
 Open the terminal through the desktop simulator and open VizBin: ::
 
+  sudo apt-get install default-jre
   java -jar VizBin-dist.jar
  
 This should prompt VizBin to open in another window. Click the choose button to open file browser to navigate to the binning folder (~/mapping/binning). There you will find the concatenated binned fasta file (binned.concat.fasta). Upload this file and hit run. 
