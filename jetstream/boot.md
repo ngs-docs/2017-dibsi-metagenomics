@@ -93,11 +93,9 @@ Just wait! Don't reload or anything.
            
 ## Click on your new instance to get more information!
 
-Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
+Now, you can either click "Open Web Shell", *or*, if you know how to use secure shell (ssh),
 you can ssh in as user 'tx160085' on the IP address of the machine - see
-circled information below.  Note that you'll need to use the private key
-file we sent around to everyone in last the pre-workshop e-mail if you decide to
-use your system terminal.
+circled information below. Click [Here](https://angus.readthedocs.io/en/2017/jetstream/login.html#) to access the tutorial for setting up a ssh connection from your local computer to your Jetstream instance. 
 
 [![foo](images/login-12.thumb.png)](../_images/login-12.png)
 
