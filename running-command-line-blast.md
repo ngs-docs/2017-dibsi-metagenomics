@@ -144,6 +144,27 @@ less mm-second.x.zebrafish.txt
 
 (and again, type 'q' to get out of paging mode.)
 
+To get an output format that reads well into downstream applications, it is helpful to add the flag *-outfmt 6*
+
+```
+blastp -query mm-second.fa -db zebrafish.1.protein.faa -out mm-second.x.zebrafish.tbl.txt -outfmt 6
+```
+To see the results:
+
+```
+head mm-second.x.zebrafish.tbl.txt | less -S
+
+```
+less -S means it is scrollable in screen from left to right.
+type 'q' to exit less
+
+To find out how to customize blast outputs, it is helpful to look at the [BLAST® Command Line Applications User Manual.](https://www.ncbi.nlm.nih.gov/books/NBK279668/)
+
+
+
+
+
+
 Notes:
 
 * you can execute multiple commands at a time;
