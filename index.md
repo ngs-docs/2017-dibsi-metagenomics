@@ -10,36 +10,36 @@ We will be using HackMD to take collective notes throughout the course:
 [HackMD](https://hackmd.io/MzBmE4FYCMA4HYC08BMtSICwFMCGA2RWTfXRSABnAsxXAGNhJRcg).
 
 ## Monday, Day 1:
-##### 11am: Meet in Valley Hall (room TBA), setup, and introductions.
-##### Noon - 1:15: Lunch
-##### 1:15 - 2pm: Group meeting with all of DIBSI
-##### 2pm - 4pm:
- * [Logging into the cloud (XSEDE Jetstream)](jetstream/boot.html)
+11am: Meet in Valley Hall (room TBA), setup, and introductions.
+* [Logging into the cloud (XSEDE Jetstream)](jetstream/boot.html)
+Noon - 1:15: Lunch
+1:15 - 2pm: Group meeting with all of DIBSI
+2pm - 4pm:
  * [Getting used to command line]
  * [Command Line Blast](running-command-line-blast.html)
-
+Homework: *Skim* the [Critical Assessment of Metagenome Interpretation (CAMI) Paper](http://www.biorxiv.org/content/biorxiv/early/2017/01/09/099127.full.pdf)
 
 ## Tuesday, Day 2:
-##### 9am - Noon:
+9am - Noon:
 * [Introduction to dataset we will be using]()
 * [Evaluating your short-read data set quality](quality.html)
-##### Noon - 1:15: Lunch
-##### 1:15 - 4pm:
+Noon - 1:15: Lunch
+1:15 - 4pm:
 * [Assembling your short read data set with MEGAHIT](assemble.html)
 * Trying quality trimming and assembly with your own data!
 
 ## Wednesday, Day 3:
-##### 9am - Noon:
+9am - Noon:
 * [Quickly searching and comparing your samples with sourmash](sourmash.html)
 * [Binning genomes out of your metagenome](binning.html)
-##### Noon - 1:15: Lunch
-##### 1:15 - 4pm:
+Noon - 1:15: Lunch
+1:15 - 4pm:
 * [Annotating your dataset with Prokka](prokka_tutorial.html)
 * [Quantifying abundance across samples with Salmon](salmon_tutorial.html)
 * [Circos for visualization](circos_tutorial.html)
 
 ## Thursday, Day 4:
-##### 9am - Noon:
+9am - Noon:
 * [A brief discussion of workflows & repeatability](workflows.html)
 * Anvi'o
 
