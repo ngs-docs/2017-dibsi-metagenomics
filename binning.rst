@@ -98,26 +98,23 @@ You should see a bunch of text and the notebook remains open until you hit Contr
 
   pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
 
-#Configure the jupyter notebook
+#Configure the jupyter notebook::
 
-```
-jupyter notebook --generate-config
+  jupyter notebook --generate-config
 
-cat >>~/.jupyter/jupyter_notebook_config.py <<EOF
-c = get_config()
-c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False
-c.NotebookApp.password = u'sha1:5d813e5d59a7:b4e430cf6dbd1aad04838c6e9cf684f4d76e245c'
-c.NotebookApp.port = 8000
+  cat >>~/.jupyter/jupyter_notebook_config.py <<EOF
+  c = get_config()
+  c.NotebookApp.ip = '*'
+  c.NotebookApp.open_browser = False
+  c.NotebookApp.password = u'sha1:5d813e5d59a7:b4e430cf6dbd1aad04838c6e9cf684f4d76e245c'
+  c.NotebookApp.port = 8000
 
-EOF
-```
+  EOF
+
 
 #We return to the location of our python notebook and start the program in the background.
 
-First, return to the location where we downloaded the notebook.
-
-::
+First, return to the location where we downloaded the notebook.::
 
   cd ~
 
