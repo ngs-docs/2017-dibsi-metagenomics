@@ -58,9 +58,8 @@ that, we'll need `this notebook <https://github.com/ngs-docs/2017-ucsc-metagenom
   curl -O https://raw.githubusercontent.com/ngs-docs/2017-ucsc-metagenomics/master/files/sourmash_tetramer.ipynb
   cd ~
 
-
-To have this work, you will need to have the Anaconda and khmer tools from the first day installed.
-
+#Use these directions if you did not terminate your instance after the short-read quality control exercise
+-----------------------------------------------------------------------------------------------------------
 ::
 
   echo http://$(hostname):8000/  
@@ -79,51 +78,36 @@ You should see a bunch of text and the notebook remains open until you hit Contr
  .. thumbnail:: ./files/jupyter_working.png
    :width: 50%
  
-If this does not work, please follow these instructions from the first day.
+
+#Use these directions if you DID terminate your instance after the short-read quality control exercise
+-----------------------------------------------------------------------------------------------------------
 
 #Install jupyter notebooks::
 
-  sudo apt-get -y update && \
-  sudo apt-get install -y python3.5-dev python3.5-venv make \
-      libc6-dev g++ zlib1g-dev
-    
-this installs Python 3.5.
+sudo apt-get -y update && \
+sudo apt-get install -y python3.5-dev python3.5-venv make \
+    libc6-dev g++ zlib1g-dev
 
-Now, create a local software install and populate it with Jupyter and other dependencies::
+python3.5 -m venv ~/py3
+. ~/py3/bin/activate
+pip install -U pip
+pip install -U Cython
+pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
 
-  python3.5 -m venv ~/py3
-  . ~/py3/bin/activate
-  pip install -U pip
-  pip install -U Cython
-  pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
+pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
 
-  pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
+jupyter notebook --generate-config
 
+cat >>~/.jupyter/jupyter_notebook_config.py <<EOF
+c = get_config()
+c.NotebookApp.ip = '*'
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = u'sha1:5d813e5d59a7:b4e430cf6dbd1aad04838c6e9cf684f4d76e245c'
+c.NotebookApp.port = 8000
 
-Then update your environment and install khmer::
+EOF
 
-   pip install -U setuptools
-   pip install -U pip
-   pip install -U Cython
-   pip install https://github.com/dib-lab/khmer/archive/master.zip
-   
-
-#Running Jupyter Notebook
--------------------------
-
-Let's also run a Jupyter Notebook. First, configure it a teensy bit
-more securely, and also have it run in the background::
-
-  rm ~/.jupyter/jupyter_notebook_config.py
-  #jupyter notebook --generate-config #This configs a default install instead of our custom settings
-  
-  cat >>~/.jupyter/jupyter_notebook_config.py <<EOF
-  c = get_config()
-  c.NotebookApp.ip = '*'
-  c.NotebookApp.open_browser = False
-  c.NotebookApp.password = u'sha1:5d813e5d59a7:b4e430cf6dbd1aad04838c6e9cf684f4d76e245c'
-  c.NotebookApp.port = 8000
-  EOF
+jupyter notebook &
 
 First, return to the location where we downloaded the notebook.
 
