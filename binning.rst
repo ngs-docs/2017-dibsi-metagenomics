@@ -80,17 +80,31 @@ Copy the full path and paste it into a new browser tab AFTER typing the followin
  
 If this does not work, please follow these instructions from the first day.
 
-Run::
 
-  sudo apt-get -y update && \
-  sudo apt-get -y install trimmomatic fastqc python-pip \
-     samtools zlib1g-dev ncurses-dev python-dev
+#Install jupyter notebooks::
 
-Install anaconda::
+```
+sudo apt-get -y update && \
+sudo apt-get install -y python3.5-dev python3.5-venv make \
+    libc6-dev g++ zlib1g-dev
+```
 
-   curl -O https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
-   bash Anaconda3-4.2.0-Linux-x86_64.sh
+this installs Python 3.5.
 
+Now, create a local software install and populate it with Jupyter and
+other dependencies:
+
+```
+
+python3.5 -m venv ~/py3
+. ~/py3/bin/activate
+pip install -U pip
+pip install -U Cython
+pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
+
+pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
+
+```
 Then update your environment and install khmer::
 
    source ~/.bashrc
