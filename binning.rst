@@ -133,17 +133,17 @@ Pay attention as your port opens, it may say that 8000 is occupied, so change th
 
 ..notes ::
 
-Note, the password is 'davis'.
+  Note, the password is 'davis'.
 
-A directory structure should open up, click on the link for the ipynb file, to start your notebook.
+  A directory structure should open up, click on the link for the ipynb file, to start your notebook.
 
-Click on the notebook to start the program.
+  Click on the notebook to start the program.
 
-Click inside the code boxes and hit Shift+Enter to run the code in each code box.  The results will appear below each code box.
+  Click inside the code boxes and hit Shift+Enter to run the code in each code box.  The results will appear below each code box.
 
-If you want to return to the shell and continue running bash commands, the jupyter notebook will remain open in the background due to the "&"
+  If you want to return to the shell and continue running bash commands, the jupyter notebook will remain open in the background due to the "&"
 
-Just hit enter in the shell window to regenerate the command line prompty.  Your notebook will remain open.
+  Just hit enter in the shell window to regenerate the command line prompty.  Your notebook will remain open.
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -167,9 +167,14 @@ Now, we can map the reads::
         bwa mem -p subset_assembly.fa $i > ${i}.aln.sam
     done
 
+This takes about 5-6 minutes.
 
 Converting to BAM to quickly quantify
 -------------------------------------
+
+Install the program samtools::
+
+  sudo apt-get install samtools
 
 First, index the assembly for samtools::
 
