@@ -18,10 +18,16 @@ Installing software for the workshop
 First, let's install software for short read quality assessment, trimming and python virtual environments::
 
   sudo apt-get -y update && \
-  sudo apt-get -y install trimmomatic fastqc python-pip \
+  sudo apt-get -y install trimmomatic python-pip \
      samtools zlib1g-dev ncurses-dev python-dev
   sudo apt-get install -y python3.5-dev python3.5-venv make \
       libc6-dev g++ zlib1g-dev
+      
+   wget -c http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip
+   unzip fastqc_v0.11.5.zip
+   cd FastQC
+   chmod +x fastqc
+   cd 
 
 Now, create a python 3.5 virtual environment and install software within::
 
