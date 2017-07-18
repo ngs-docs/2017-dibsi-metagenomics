@@ -15,7 +15,7 @@ this is the command prompt.
 Installing software for the workshop
 ------------------------
 
-First, let's install software for short read QA, trimming and python virtual environments::
+First, let's install software for short read quality assessment, trimming and python virtual environments::
 
   sudo apt-get -y update && \
   sudo apt-get -y install trimmomatic fastqc python-pip \
