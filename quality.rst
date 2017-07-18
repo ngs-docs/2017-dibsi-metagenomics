@@ -264,6 +264,33 @@ Let's take a look at the output files::
 
 (again, use spacebar to scroll, 'q' to exit less).
 
+5. MultiQC
+----------
+
+`MultiQC <http://multiqc.info/>`_ aggregates results across many samples into a single report for easy comparison.
+
+Install MultiQC within the py3 environment::
+
+   pip install multiqc
+
+Now, run Mulitqc on both the untrimmed and trimmed files within the work directory::
+
+   multiqc .
+
+And now you should see output that looks like this::
+
+   [INFO   ]         multiqc : This is MultiQC v1.0
+   [INFO   ]         multiqc : Template    : default
+   [INFO   ]         multiqc : Searching '.'
+   Searching 15 files..  [####################################]  100%
+   [INFO   ]          fastqc : Found 4 reports
+   [INFO   ]         multiqc : Compressing plot data
+   [INFO   ]         multiqc : Report      : multiqc_report.html
+   [INFO   ]         multiqc : Data        : multiqc_data
+   [INFO   ]         multiqc : MultiQC complete
+
+Now we can view the output file using Jupyter Notebook.
+   
 Questions:
 
 * is the quality trimmed data "better" than before?
