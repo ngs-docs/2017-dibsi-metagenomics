@@ -15,27 +15,23 @@ this is the command prompt.
 Installing software for the workshop
 ------------------------
 
-First, let's install software for short read quality and trimming::
+First, let's install software for short read QA, trimming and python virtual environments::
 
   sudo apt-get -y update && \
   sudo apt-get -y install trimmomatic fastqc python-pip \
      samtools zlib1g-dev ncurses-dev python-dev
+  sudo apt-get install -y python3.5-dev python3.5-venv make \
+      libc6-dev g++ zlib1g-dev
 
-Next, update your environment and install python virtual environments::
-   
-sudo apt-get -y update && \
-sudo apt-get install -y python3.5-dev python3.5-venv make \
-    libc6-dev g++ zlib1g-dev
+Now, create a python 3.5 virtual environment and install software within::
 
-Now, create a python 3.5 virtual environment and install more software::
+   python3.5 -m venv ~/py3
+   . ~/py3/bin/activate
+   pip install -U pip
+   pip install -U Cython
+   pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
 
-python3.5 -m venv ~/py3
-. ~/py3/bin/activate
-pip install -U pip
-pip install -U Cython
-pip install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn khmer
-
-pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
+   pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
 
 
 Running Jupyter Notebook
