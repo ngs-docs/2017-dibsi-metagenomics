@@ -89,7 +89,7 @@ And finally make an annotation file for visualization
 
 ```
 echo label > megahit_annotation.list
-grep ">" binned.concat.fasta |cut -f2 -d ' '>> megahit_annotation.list
+grep ">" megahit_binned.concat.fasta |cut -f2 -d ' '>> megahit_annotation.list
 ```  
 ### Binning 2 - MetaBAT
 --
