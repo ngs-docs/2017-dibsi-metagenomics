@@ -20,7 +20,7 @@ Noon - 1:15: Lunch
 2pm - 4pm:
  * [Working on Command Line](command-line.html)
  * [Command Line Blast](running-command-line-blast.html)
- 
+
 Homework: *Skim* the [Critical Assessment of Metagenome Interpretation (CAMI) Paper](http://www.biorxiv.org/content/biorxiv/early/2017/01/09/099127.full.pdf)
 
 ## Tuesday, Day 2:
@@ -36,25 +36,24 @@ Noon - 1:15: Lunch
 ## Wednesday, Day 3:
 9am - Noon:
 * [Assembling your short read data set with MEGAHIT](assemble.html)
-* [Quickly searching and comparing your samples with sourmash](sourmash.html) 
+* [Quickly searching and comparing your samples with sourmash](sourmash.html)
 
 Noon - 1:15: Lunch
 
 1:15 - 4pm:
-* [Mapping short reads to the assembly](mapping.html) *time permitting* 
+* [Mapping short reads to the assembly](mapping.html) *time permitting*
 * [Binning genomes out of your metagenome](binning.html)
 
 ## Thursday, Day 4:
 9am - Noon:
 * [Annotating your dataset with Prokka](prokka_tutorial.html)
 * [Quantifying abundance across samples with Salmon](salmon_tutorial.html)
-* [Circos for visualization](circos_tutorial.html)
 
 Noon - 1:15: Lunch
 
 1:15 - 4pm:
 
-* Anvi'o
+* [Anvi'o](anvio.html)
 * [A brief discussion of workflows & repeatability](workflows.html)
 
 
