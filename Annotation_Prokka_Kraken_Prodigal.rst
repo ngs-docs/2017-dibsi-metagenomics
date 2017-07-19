@@ -86,7 +86,9 @@ Question:  Look at the results of the prokka analysis as it prepares your output
 
 Don't worry, the program tends to pause here::
 
-	Running: cat prokka_annotation\/sprot\.faa | parallel --gnu --plain -j 6 --block 242000 --recstart '>' --pipe blastp -query - -db /home/tx160085/prokka/bin/../db/kingdom/Bacteria/sprot -evalue 1e-06 -num_threads 1 -num_descriptions 1 -num_alignments 1 -seg no > prokka_annotation\/sprot\.blast 2> /dev/null
+	Running: cat prokka_annotation\/sprot\.faa | parallel --gnu --plain -j 6 --block 242000 
+	--recstart '>' --pipe blastp -query --db /home/tx160085/prokka/bin/../db/kingdom/Bacteria/sprot 
+	-evalue 1e-06 -num_threads 1 -num_descriptions 1 -num_alignments 1 -seg no > prokka_annotation\/sprot\.blast 2> /dev/null
 
 This will generate a new folder called ``prokka_annotation`` in which will be a series of files, which are detailed `here <https://github.com/tseemann/prokka/blob/master/README.md#output-files>`__.
 
