@@ -137,7 +137,7 @@ First, install VizBin::
 
 ```
 cd
-sudo apt-get install libatlas3-base libopenblas-base
+sudo apt-get install libatlas3-base libopenblas-base default-jre
 curl -L https://github.com/claczny/VizBin/blob/master/VizBin-dist.jar?raw=true > VizBin-dist.jar
 ```
 
