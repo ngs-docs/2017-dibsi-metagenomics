@@ -41,23 +41,21 @@ Prodigal (Prokaryotic Dynamic Programming Genefinding Algorithm) is a microbial 
 So far, you have learned about how to assemble sequences yesterday and assemble some contigs, for today's tutorial, we need a full assembled file. Let's also get some assembled and mapped data.
 
 ::
-
-   	cd ~    
+	cd ~    
 	mkdir binning && cd ~/binning    
 	wget https://s3.amazonaws.com/edamame/SRR492066.sam.bam.sorted.bam    
 	wget https://s3.amazonaws.com/edamame/SRR492065.sam.bam.sorted.bam    
-	wget https://s3.amazonaws.com/edamame/final.contigs.fa``
+	wget https://s3.amazonaws.com/edamame/final.contigs.fa
+	
  
+We need to grab some software from public repositories.
  
- We need to grab some software from public repositories.
- 
- Install Metabat::
+Install Metabat::
  
  	cd ~
  	wget https://bitbucket.org/berkeleylab/metabat/downloads/metabat-static-binary-linux-x64_v2.11.1.tar.gz
 	tar xzvf metabat-static-binary-linux-x64_v2.11.1.tar.gz
 	
-
 Install Kraken::
 
 	cd ~
@@ -72,7 +70,6 @@ Install Kraken Mini DB::
 	cd ~/KRAKEN
 	wget http://ccb.jhu.edu/software/kraken/dl/minikraken.tgz
 	tar -xvf minikraken.tgz
-
 
 Install Prodigal::
 
