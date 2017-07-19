@@ -30,25 +30,33 @@ Homework: *Skim* the [Critical Assessment of Metagenome Interpretation (CAMI) Pa
 Noon - 1:15: Lunch
 
 1:15 - 4pm:
-* [Assembling your short read data set with MEGAHIT](assemble.html)
+* Lecture about assembly from Titus Brown
 * Trying quality trimming and assembly with your own data!
 
 ## Wednesday, Day 3:
 9am - Noon:
-* [Quickly searching and comparing your samples with sourmash](sourmash.html)
-* [Binning genomes out of your metagenome](binning.html)
+* [Assembling your short read data set with MEGAHIT](assemble.html)
+* [Quickly searching and comparing your samples with sourmash](sourmash.html) 
 
 Noon - 1:15: Lunch
 
 1:15 - 4pm:
+* [Mapping short reads to the assembly](mapping.html) *time permitting* 
+* [Binning genomes out of your metagenome](binning.html)
+
+## Thursday, Day 4:
+9am - Noon:
 * [Annotating your dataset with Prokka](prokka_tutorial.html)
 * [Quantifying abundance across samples with Salmon](salmon_tutorial.html)
 * [Circos for visualization](circos_tutorial.html)
 
-## Thursday, Day 4:
-9am - Noon:
-* [A brief discussion of workflows & repeatability](workflows.html)
+Noon - 1:15: Lunch
+
+1:15 - 4pm:
+
 * Anvi'o
+* [A brief discussion of workflows & repeatability](workflows.html)
+
 
 ## Friday, Optional Day 5: TBD (plotting, visualization, jupyter notebooks...)
 
