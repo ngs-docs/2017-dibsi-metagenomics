@@ -78,20 +78,20 @@ Visualizing the read mapping
 
 Find a contig name to visualize::
 
-    grep -v ^@ SRR1976948.sam | \
-        cut -f 3 | sort | uniq -c | sort -n
+    grep -v ^@ SRR1976948.abundtrim.subset.pe.fq.aln.sam | \
+        cut -f 3 | sort | uniq -c | sort -n | tail
 
 Pick one e.g. k99_13588.
 
 Now execute::
 
-  samtools tview SRR1976948.sam.bam.sorted.bam subset_assembly.fa -p k99_13588:400
+  samtools tview SRR1976948.abundtrim.subset.pe.fq.aln.sam.bam.sorted.bam subset_assembly.fa -p k99_13588:400
 
 (use arrow keys to scroll, 'q' to quit; a key for what you are looking at: `pileup format<https://en.wikipedia.org/wiki/Pileup_format>`__.)
 
 Look at it in both mappings::
 
-  samtools tview SRR1977249.sam.bam.sorted.bam subset_assembly.fa -p k99_13588:400
+  samtools tview SRR1977249.abundtrim.subset.pe.fq.aln.sam.bam.sorted.bam subset_assembly.fa -p k99_13588:400
 
 Why is the mapping so good??
 
