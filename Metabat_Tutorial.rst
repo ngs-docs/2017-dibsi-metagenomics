@@ -41,6 +41,7 @@ Prodigal (Prokaryotic Dynamic Programming Genefinding Algorithm) is a microbial 
 So far, you have learned about how to assemble sequences yesterday and assemble some contigs, for today's tutorial, we need a full assembled file. Let's also get some assembled and mapped data.
 
 ::
+
 	cd ~    
 	mkdir binning && cd ~/binning    
 	wget https://s3.amazonaws.com/edamame/SRR492066.sam.bam.sorted.bam    
