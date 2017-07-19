@@ -85,7 +85,7 @@ Let's first take a look at the assembly::
 
     less combined/final.contigs.fa
 
-run a few stats on our assembly. To do this we will use `QUAST <http://quast.sourceforge.net/quast>`__ ::
+Now we can run a few stats on our assembly. To do this we will use `QUAST <http://quast.sourceforge.net/quast>`__ ::
 
     cd ~/
     git clone https://github.com/ablab/quast.git -b release_4.5
@@ -106,7 +106,6 @@ At this point we can do a bunch of things:
 * set up a BLAST database so that we can search it for genes of interest;
 * quantify the abundance of the contigs or genes in the assembly, using the original read data set (:doc:`salmon_tutorial`);
 * bin the contigs in the assembly into species bins;
-
 
 ----
 
