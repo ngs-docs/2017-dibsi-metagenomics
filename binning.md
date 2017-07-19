@@ -5,6 +5,7 @@ A common approach following metagenome assembly is binning, a process by which a
 
 ### Installing binners
 MaxBin
+
 ```
  cd
  curl  https://downloads.jbei.org/data/microbial_communities/MaxBin/getfile.php?MaxBin-2.2.2.tar.gz > MaxBin-2.2.2.tar.gz
@@ -17,6 +18,7 @@ MaxBin
  export PATH=$PATH:~/MaxBin-2.2.2
 ```
 MetaBAT
+
 ```
 cd 
 curl -L https://bitbucket.org/berkeleylab/metabat/downloads/metabat-static-binary-linux-x64_v0.32.4.tar.gz > metabatv0.32.4.tar.gz
@@ -39,7 +41,9 @@ Time to finally run the Binners!
  before proceeding with your own data analysis.
 
 
-### First let's quickly get a rough count of the total number of reads mapping to each contig using samtools
+### Get a rough count of the total number of reads mapping 
+Q. Why is the read counts per contigs not an accurate number?
+
 ```
 cd ~/mapping
 
@@ -53,23 +57,27 @@ for i in *sorted.bam
 ### Binning 1 - MaxBin
 --
 
-Maxbin uses read coverage for each contig. 
+Maxbin uses **read coverage** & **tetranucleotide frequencies** for each contig, and **marker gene counts** for each bin
 
 First, we will get a list of the count files that we have to pass to MaxBin
+
 ```
 mkdir ~/mapping/binning
 cd ~/mapping/binning
 ls ../*counts > abundance.list
 ```
 Now, on to the actual binning
+
 ```
 run_MaxBin.pl -contig ../subset_assembly.fa -abund_list abundance.list -max_iteration 5 -out mbin
 ```
+
 This will generate a series of files. Take a look at the files generated. In particular you should see a series of *.fasta files preceeded by numbers. These are the different genome bins predicted by MaxBin.
 
 Take a look at the mbin.summary file. What is shown?
 
 Now, we are going to generate a concatenated file that contains all of our genome bins put together. We will change the fasta header name to include the bin number so that we can tell them apart later. 
+
 ```
 for file in mbin.*.fasta
   do 
@@ -78,6 +86,7 @@ for file in mbin.*.fasta
   done
 ```
 And finally make an annotation file for visualization
+
 ```
 echo label > megahit_annotation.list
 grep ">" binned.concat.fasta |cut -f2 -d ' '>> megahit_annotation.list
@@ -85,12 +94,14 @@ grep ">" binned.concat.fasta |cut -f2 -d ' '>> megahit_annotation.list
 ### Binning 2 - MetaBAT
 --
 
-MetaBAT uses read coverage as well as **coverage variance** for each contig. This is done with a custom script
+MetaBAT uses **read coverage**, **coverage variance**, & **tetranucleotide frequencies** for each contig. This is done with a custom script
+
 ```
 cd ~/mapping
 ~/metabat/jgi_summarize_bam_contig_depths --outputDepth depth_var.txt *sorted.bam
 ```
 Setup another "binning" directory for this tool's results
+
 ```
 mkdir ~/mapping/binning_metabat
 cd ~/mapping/binning_metabat
@@ -98,10 +109,12 @@ cd ~/mapping/binning_metabat
 Run MetaBAT script
 
 *Note that we are outputting info to a logfile*
+
 ```
 ~/metabat/metabat -i ../subset_assembly.fa -a ../depth_var.txt --verysensitive -o metabat -v > log.txt
 ```
 Make the .fasta file of all binned sequences
+
 ```
 for file in metabat.*.fa
   do
@@ -110,6 +123,7 @@ for file in metabat.*.fa
 done 
 ```
 Make an annotation file of the bin numbers for annotation in VizBin
+
 ```
 echo label > metabat_annotation.list
 grep ">" metabat_binned.concat.fasta |cut -f2 -d ' '>> metabat_annotation.list
@@ -120,16 +134,19 @@ grep ">" metabat_binned.concat.fasta |cut -f2 -d ' '>> metabat_annotation.list
 Now that we have our binned data there are several different things we can do. One thing we might want to do is check the quality of the binning-- a useful tool for this is CheckM. We can also visualize the bins that we just generated using VizBin.
 
 First, install VizBin::
-``
+
+```
 cd
 sudo apt-get install libatlas3-base libopenblas-base
 curl -L https://github.com/claczny/VizBin/blob/master/VizBin-dist.jar?raw=true > VizBin-dist.jar
-``
+```
+
 VizBin can run in OSX or Linux but is very hard to install on Windows. To simplify things we are going to run VizBin in the desktop emulator through JetStream (which is ... a bit clunky). So, go back to the Jetstream and open up the web desktop simulator. 
 
 ![](./files/VizBin-OpenDesktop.png)
 
 Open the terminal through the desktop simulator and open VizBin:
+
 ```
 java -jar VizBin-dist.jar
 ```
@@ -137,7 +154,7 @@ This should prompt VizBin to open in another window. Click the choose button to 
 
 ![](./files/VizBin-LoadFile.png)
 
-What do you see? Read up a bit on `VizBin <https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-014-0066-1>`__ to see how the visualization is generated. 
+What do you see? Read up a bit on [VizBin](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-014-0066-1) to see how the visualization is generated. 
 
 Now, upload the annotation.list file as an annotation file to VizBin. The annotation file contains the bin id for each of the contigs in the assembly that were binned. 
 
