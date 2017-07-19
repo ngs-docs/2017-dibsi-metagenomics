@@ -37,22 +37,24 @@ Go to the data directory and download the prokka annotated sequences, assembled 
   cd ~
   mkdir -p data
   cd data
+  
   curl -L -O https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/SRR1976948.abundtrim.subset.pe.fq.gz
   curl -L -O https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/SRR1977249.abundtrim.subset.pe.fq.gz
-  curl -L -O https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/prokka_annotation_assembly.tar.gz
-  tar -xvzf prokka_annotation_assembly.tar.gz
+#  This file was created this morning, inside the annotation/prokka_annotation folder
+#  curl -L -O https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/prokka_annotation_assembly.tar.gz
+#  tar -xvzf prokka_annotation_assembly.tar.gz
 
 Make a new directory for the quantification of data with Salmon:
 ::
    
-    mkdir quant
-    cd quant
+    mkdir ~/quant
+    cd ~/quant
 
 
 Grab the nucleotide (``*ffn``) predicted protein regions from Prokka and link them here. Also grab the trimmed sequence data (``*fq``)
 ::
    
-    ln -fs ~/data/prokka_annotation/*ffn .
+    ln -fs ~/annotation/prokka_annotation/metagG.ffn .
     ln -fs ~/data/*.abundtrim.subset.pe.fq.gz .
 
 Create the salmon index:
@@ -61,6 +63,10 @@ Create the salmon index:
   salmon index -t metagG.ffn -i transcript_index --type quasi -k 31
 
 Salmon requires that paired reads be separated into two files. We can split the reads using the ``split-paired-reads.py`` from the khmer package:
+::
+
+   pip install khmer
+
 ::
 
   for file in *.abundtrim.subset.pe.fq.gz
