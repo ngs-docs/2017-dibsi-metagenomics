@@ -113,7 +113,7 @@ Run the script.
 
 	./binscript.sh
 
-Go into one of the resulting bins and head some of the files:
+Go into one of the resulting bins and head some of the files::
 
 	cd ~/binning/SRR492065.sam.bam.sorted.bam.bins/final.contigs.fa.metabat-bins
 	head *.fa
@@ -182,7 +182,7 @@ Using prodigal with the same set of data, we can get a list of predicted genes.
 
 --------------
 
-Adapted by Adelaide Rhodes, Ph.D. for Environmental Metagenomics 2017 UC Davis DIGBSI
+Adapted by Adelaide Rhodes, Ph.D. for Environmental Metagenomics 2017 UC Davis `DIBSI <http://ivory.idyll.org/dibsi/>`__
 
 Authored by Fan Yang  `EDAMAME-2016
 wiki <https://github.com/edamame-course/2016-tutorials/wiki>`__
