@@ -136,7 +136,7 @@ Is that really true?
 
 Yes! Check out this figure from the [MetaPalette paper](http://msystems.asm.org/content/1/3/e00020-16):
 
-![](_static/kmers-metapalette.png)
+![x](_static/kmers-metapalette.png)
 
 here, the Koslicki and Falush show that k-mer similarity works to
 group microbes by genus, at k=40. If you go longer (say k=50) then
