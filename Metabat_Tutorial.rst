@@ -89,11 +89,9 @@ Install Prodigal::
 
        nano binscript.sh
 
-Copy and paste the following block into the script
+Copy and paste the following block into the script::
 
-::
-
-for i in ~/binning/*.sorted.bam
+	for i in ~/binning/*.sorted.bam
         do
            newfile=$(basename $i *.sam.bam.sorted.bam)
            mkdir ~/binning/${newfile}.bins
@@ -102,7 +100,6 @@ for i in ~/binning/*.sorted.bam
         done
 
 Control-X to exit
-
 
 Make the script executable.
 
