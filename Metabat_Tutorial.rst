@@ -84,10 +84,9 @@ Install Prodigal::
 2. Now let's do some binning!
 ===============================================
 
-   ::
+::
 
        cd ~/binning
-
        nano binscript.sh
 
 Copy and paste the following block into the script::
