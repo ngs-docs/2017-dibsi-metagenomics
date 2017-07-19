@@ -15,6 +15,7 @@ First, install it::
 
 Now, download some data::
 
+   mkdir ~/data
    cd ~/data
    curl -O https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/SRR1976948.abundtrim.subset.pe.fq.gz
    curl -O https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/SRR1977249.abundtrim.subset.pe.fq.gz
@@ -34,24 +35,18 @@ Now, finally, run the assembler! ::
    ~/megahit/megahit --12 SRR1976948.abundtrim.subset.pe.fq.gz,SRR1977249.abundtrim.subset.pe.fq.gz \
        -o combined
 
-This will take about 25 minutes; at the end you should see output like
+This will take about 15 minutes; at the end you should see output like
 this::
 
-   ... 12787984 bp, min 200 bp, max 61353 bp, avg 1377 bp, N50 3367 bp
-   ... ALL DONE. Time elapsed: 1592.503825 seconds
+   ... 7713 contigs, total 13168567 bp, min 200 bp, max 54372 bp, avg 1707 bp, N50 4305 bp
+   ... ALL DONE. Time elapsed: 899.612093 seconds 
 
 The output assembly will be in ``combined/final.contigs.fa``.
 
 While the assembly runs...
 --------------------------
 
-.. Graph assembly / What doesn’t get assembled? (Repeats, strain variation)
-.. Sherine work on metagenomics
-.. Our read length figure / soil
-
-How assembly works - whiteboarding the De Bruijn graph approach.
-
-Interpreting the MEGAHIT working output :)
+Discuss CAMI paper. 
 
 What does, and doesn't, assemble?
 
@@ -86,6 +81,24 @@ an analysis of read search vs contig search of a protein database.
 After the assembly is finished
 ------------------------------
 
+Let's first take a look at the assembly::
+
+    less combined/final.contigs.fa
+
+run a few stats on our assembly. To do this we will use `QUAST <http://quast.sourceforge.net/quast>`__ ::
+
+    cd ~/
+    git clone https://github.com/ablab/quast.git -b release_4.5
+    export PYTHONPATH=$(pwd)/quast/libs/
+
+Now, run QUAST on the assembly::
+
+    cd ~/assembly
+    ~/quast/quast.py combined/final.contigs.fa -o combined-report
+    cat combined-report/report.txt
+
+What does this say about our assembly? What do the stats *not* tell us? 
+
 At this point we can do a bunch of things:
 
 * annotate the assembly (:doc:`prokka_tutorial`);
@@ -97,4 +110,4 @@ At this point we can do a bunch of things:
 
 ----
 
-Next: :doc:`prokka_tutorial`
+Next: :doc:`sourmash`
