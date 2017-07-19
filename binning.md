@@ -82,14 +82,14 @@ Now, we are going to generate a concatenated file that contains all of our genom
 for file in mbin.*.fasta
   do 
     num=${file//[!0-9]/}
-    sed -e "/^>/ s/$/ ${num}/" mbin.$num.fasta >> megahit_binned.concat.fasta
+    sed -e "/^>/ s/$/ ${num}/" mbin.$num.fasta >> maxbin_binned.concat.fasta
   done
 ```
 And finally make an annotation file for visualization
 
 ```
-echo label > megahit_annotation.list
-grep ">" megahit_binned.concat.fasta |cut -f2 -d ' '>> megahit_annotation.list
+echo label > maxbin_annotation.list
+grep ">" maxbin_binned.concat.fasta |cut -f2 -d ' '>> maxbin_annotation.list
 ```  
 ### Binning 2 - MetaBAT
 --
@@ -131,7 +131,7 @@ grep ">" metabat_binned.concat.fasta |cut -f2 -d ' '>> metabat_annotation.list
 
 ## Visualizing the bins
 
-Now that we have our binned data there are several different things we can do. One thing we might want to do is check the quality of the binning-- a useful tool for this is CheckM. We can also visualize the bins that we just generated using VizBin.
+Now that we have our binned data from both MetaBAT and MaxBin there are several different things we can do. One thing we might want to do is check the quality of the binning-- a useful tool for this is [CheckM](http://ecogenomics.github.io/CheckM/). Today, for the sake of time, we will visualize the bins that we just generated using VizBin.
 
 First, install VizBin::
 
@@ -150,19 +150,20 @@ Open the terminal through the desktop simulator and open VizBin:
 ```
 java -jar VizBin-dist.jar
 ```
-This should prompt VizBin to open in another window. Click the choose button to open file browser to navigate to the binning folder (~/mapping/binning). There you will find the concatenated binned fasta file (binned.concat.fasta). Upload this file and hit run. 
+This should prompt VizBin to open in another window. First we will look at the output of the MaxBin assembly. Click the choose button to open file browser to navigate to the binning folder (`~/mapping/binning`). There you will find the concatenated binned fasta file (`maxbin_binned.concat.fasta`). Upload this file and hit run. 
 
 ![](./files/VizBin-LoadFile.png)
 
 What do you see? Read up a bit on [VizBin](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-014-0066-1) to see how the visualization is generated. 
 
-Now, upload the annotation.list file as an annotation file to VizBin. The annotation file contains the bin id for each of the contigs in the assembly that were binned. 
+Now, upload the maxbin_annotation.list file as an annotation file to VizBin. The annotation file contains the bin id for each of the contigs in the assembly that were binned. 
 
 ![](./files/VizBin-AddFiles.png)
+
+Now, do the same for MetaBat! 
 
 Compare the results of the two binning methods-
 - How many bins were found?
 - How distinct are the bins?
 
-Next we will [search and compare our data](https://2017-ucsc-metagenomics.readthedocs.io/en/latest/sourmash.html).
 
