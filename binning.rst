@@ -58,9 +58,8 @@ that, we'll need `this notebook <https://github.com/ngs-docs/2017-ucsc-metagenom
   curl -O https://raw.githubusercontent.com/ngs-docs/2017-ucsc-metagenomics/master/files/sourmash_tetramer.ipynb
   cd ~
 
-
-To have this work, you will need to have the Anaconda and khmer tools from the first day installed.
-
+#Use these directions if you did not terminate your instance after the short-read quality control exercise
+-----------------------------------------------------------------------------------------------------------
 ::
 
   echo http://$(hostname):8000/  
@@ -79,17 +78,17 @@ You should see a bunch of text and the notebook remains open until you hit Contr
  .. thumbnail:: ./files/jupyter_working.png
    :width: 50%
  
-If this does not work, please follow these instructions from the first day.
 
-#Install jupyter notebooks::
+#Use these directions if you DID terminate your instance after the short-read quality control exercise
+-----------------------------------------------------------------------------------------------------------
+
+#Install jupyter notebooks, first by installing python3.5::
 
   sudo apt-get -y update && \
   sudo apt-get install -y python3.5-dev python3.5-venv make \
       libc6-dev g++ zlib1g-dev
-    
-this installs Python 3.5.
-
-Now, create a local software install and populate it with Jupyter and other dependencies::
+      
+#Set up the python3.5 environment and add modules to create the notebook::
 
   python3.5 -m venv ~/py3
   . ~/py3/bin/activate
@@ -99,39 +98,27 @@ Now, create a local software install and populate it with Jupyter and other depe
 
   pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
 
+#Configure the jupyter notebook::
 
-Then update your environment and install khmer::
+  jupyter notebook --generate-config
 
-   pip install -U setuptools
-   pip install -U pip
-   pip install -U Cython
-   pip install https://github.com/dib-lab/khmer/archive/master.zip
-   
-
-#Running Jupyter Notebook
--------------------------
-
-Let's also run a Jupyter Notebook. First, configure it a teensy bit
-more securely, and also have it run in the background::
-
-  rm ~/.jupyter/jupyter_notebook_config.py
-  #jupyter notebook --generate-config #This configs a default install instead of our custom settings
-  
   cat >>~/.jupyter/jupyter_notebook_config.py <<EOF
   c = get_config()
   c.NotebookApp.ip = '*'
   c.NotebookApp.open_browser = False
   c.NotebookApp.password = u'sha1:5d813e5d59a7:b4e430cf6dbd1aad04838c6e9cf684f4d76e245c'
   c.NotebookApp.port = 8000
+
   EOF
 
-First, return to the location where we downloaded the notebook.
 
-::
+#We return to the location of our python notebook and start the program in the background.
+
+First, return to the location where we downloaded the notebook.::
 
   cd ~
 
-On Jetstream, you can get the Web page address by executing:
+On Jetstream, you can get the Web page address by executing::
 
   echo http://$(hostname):8000/
 
@@ -146,14 +133,17 @@ Pay attention as your port opens, it may say that 8000 is occupied, so change th
 
 ..notes ::
 
-Note, the password is 'davis'.
+  Note, the password is 'davis'.
 
-A directory structure should open up, click on the link for the ipynb file, to start your notebook.
+  A directory structure should open up, click on the link for the ipynb file, to start your notebook.
 
-Click on the notebook to start the program.
+  Click on the notebook to start the program.
 
-Click inside the code boxes and hit Shift+Enter to run the code in each code box.  The results will appear below each code box.
+  Click inside the code boxes and hit Shift+Enter to run the code in each code box.  The results will appear below each code box.
 
+  If you want to return to the shell and continue running bash commands, the jupyter notebook will remain open in the background due to the "&"
+
+  Just hit enter in the shell window to regenerate the command line prompty.  Your notebook will remain open.
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -177,9 +167,14 @@ Now, we can map the reads::
         bwa mem -p subset_assembly.fa $i > ${i}.aln.sam
     done
 
+This takes about 5-6 minutes.
 
 Converting to BAM to quickly quantify
 -------------------------------------
+
+Install the program samtools::
+
+  sudo apt-get install samtools
 
 First, index the assembly for samtools::
 
@@ -283,6 +278,7 @@ VizBin can run in OSX or Linux but is very hard to install on Windows. To simpli
 
 Open the terminal through the desktop simulator and open VizBin: ::
 
+  sudo apt-get install default-jre
   java -jar VizBin-dist.jar
  
 This should prompt VizBin to open in another window. Click the choose button to open file browser to navigate to the binning folder (~/mapping/binning). There you will find the concatenated binned fasta file (binned.concat.fasta). Upload this file and hit run. 
