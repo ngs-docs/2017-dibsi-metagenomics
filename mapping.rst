@@ -30,7 +30,7 @@ Now, go to a new directory and grab the data::
 
 And extract the files::
 
-  for file in *fq.gz:
+  for file in *fq.gz
     do
     gunzip $file
   done
