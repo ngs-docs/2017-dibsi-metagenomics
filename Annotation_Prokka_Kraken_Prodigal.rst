@@ -101,8 +101,8 @@ Question:  Take a moment and look inside the output files.::
 
 less reminders:
 
-Press space_bar to page down
-Press q to exit the less commands
+*Press space_bar to page down
+*Press q to exit the less commands
 
 Questions? 
 =========
