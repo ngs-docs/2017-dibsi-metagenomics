@@ -80,7 +80,7 @@ Link the metagenome assembly file into this directory:
 Now it is time to run Prokka! There are tons of different ways to specialize the running of Prokka. We are going to keep it simple for now, though. It will take a little bit to run.
 ::
 
-    prokka subset_assembly.fa --outdir prokka_annotation --prefix metagG --metagenome
+    prokka subset_assembly.fa --outdir prokka_annotation --prefix metagG --metagenome --kingdom Bacteria
 
 Question:  Look at the results of the prokka analysis as it prepares your output file.  What types of categories are you seeing flash by on the screen?
 
