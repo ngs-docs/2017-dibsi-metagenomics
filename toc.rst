@@ -14,13 +14,14 @@ Tutorials:
    quality
    assemble
    prokka_tutorial
-   
+
    sourmash
-   
+
    binning
    salmon_tutorial
    mapping
    slice
+   anvio
    circos_tutorial
    workflow
    whatsnext
