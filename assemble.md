@@ -61,11 +61,11 @@ The output assembly will be in `combined/final.contigs.fa`.
 Some figures for your consideration: 
 The first two come from work by Dr. Sherine Awad on analyzing the data from Shakya et al (2014). The third comes from an analysis of read search vs contig search of a protein database.
 
-![](files/assembler-runtimes.png){ width: "200px"; }
+![](files/assembler-runtimes.png =250x)
 
-![](files/assembler-mapping.png){ width: "200px"; }
+![](files/assembler-mapping.png =250x)
   
-![](files/read-vs-contig-alignment.png){ width: "200px"; }
+![](files/read-vs-contig-alignment.png =250x)
    
 ## After the assembly is finished
 
