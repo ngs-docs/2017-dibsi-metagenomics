@@ -1,5 +1,5 @@
-2017 / July / Environmentl Metagenomics
-=======================================
+2017 / July / Environmental Metagenomics
+========================================
 
 This workshop was given on July 17th - 21st, 2017 at the the Unveristy of California, Davis.
 Lead Instructor: Harriet Alexander
