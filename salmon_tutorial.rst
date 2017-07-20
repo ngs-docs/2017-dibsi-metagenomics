@@ -23,10 +23,13 @@ Download and extract the latest version of Salmon and add it to your PATH:
 ::
    
     cd
+    . ~/py3/bin/activate
+    pip install pandas
     wget https://github.com/COMBINE-lab/salmon/releases/download/v0.7.2/Salmon-0.7.2_linux_x86_64.tar.gz
     tar -xvzf Salmon-0.7.2_linux_x86_64.tar.gz
     cd Salmon-0.7.2_linux_x86_64
     export PATH=$PATH:$HOME/Salmon-0.7.2_linux_x86_64/bin
+
 
 Running Salmon
 ==============
@@ -41,6 +44,7 @@ Grab the nucleotide (``*ffn``) predicted protein regions from Prokka and link th
 ::
    
     ln -fs ~/annotation/prokka_annotation/metagG.ffn .
+    ln -fs ~/annotation/prokka_annotation/metagG.gff .
     ln -fs ~/data/*.abundtrim.subset.pe.fq.gz .
 
 Create the salmon index:
@@ -102,31 +106,42 @@ and run it::
 
 This will give you a bunch of .counts files, which are processed from the quant.sf files and named for the directory from which they emanate.
 
+Now, we can create one file::
+
+   for file in *counts
+   do 
+      name=${file%%.*}
+      sed -e "s/count/$name/g" $file > tmp
+      mv tmp $x
+   done
+   paste *counts |cut -f 1,2,4 > Combined-counts.tab
+
 Plotting the results
 ====================
 
-In Jupyter Notebook, open a new Python3 notebook and enter::
+In Jupyter Notebook, open a new Python3 notebook and name it. Then, into the first cell enter::
 
-  %matplotlib inline
-  import numpy
-  from pylab import *
+   import pandas as pd
+   import matplotlib.pyplot as plt
+   %matplotlib inline
 
-In another cell::
+In another cell (to make sure we are in the correct directory) enter::
 
-  cd ~/data/quant
+  cd ~/quant
 
-In another cell::
+Now, we can read our data into a pandas dataframe. This is similar to dataframes in R or an Excel spreadsheet. Paste the following into a new cell.::
 
-  counts1 = [ x.split()[1] for x in open('SRR1976948.quant.counts')]
-  counts1 = [ float(x) for x in counts1[1:] ]
-  counts1 = numpy.array(counts1)
+   count_df=pd.read_table('Combined-counts.tab', index_col='transcript')
+   count_df
+   
+And, finally we can plot it!::
 
-  counts2 = [ x.split()[1] for x in open('SRR1977249.quant.counts')]
-  counts2 = [ float(x) for x in counts2[1:] ]
-  counts2 = numpy.array(counts2)
-
-  plot(counts1, counts2, '*')
-
+   fig, ax = plt.subplots(1) #set up a figure and axis handle
+   count_df.plot(kind='scatter', x='SRR1976948', y='SRR1977249', ax=ax) #plot scatter plot 
+   
+The wonderful thing about Jupyter notebooks is that you can go back and modify a plot really easily! Let's try a few modifications with the above plot. 
+   
+   
 References
 ===========
 * http://salmon.readthedocs.io/en/latest/salmon.html
