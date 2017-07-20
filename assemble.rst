@@ -97,7 +97,7 @@ Now, run QUAST on the assembly::
     ~/quast/quast.py combined/final.contigs.fa -o combined-report
     cat combined-report/report.txt
 
-What does this say about our assembly? What do the stats *not* tell us? 
+What does this say about our assembly? What do the stats *not* tell us? For thought and discussion: a few [nice slides](files/evaluate_assembly_summary.pdf) from Jessica Blanton on assessing assembly quality. 
 
 At this point we can do a bunch of things:
 
@@ -106,7 +106,3 @@ At this point we can do a bunch of things:
 * set up a BLAST database so that we can search it for genes of interest;
 * quantify the abundance of the contigs or genes in the assembly, using the original read data set (:doc:`salmon_tutorial`);
 * bin the contigs in the assembly into species bins;
-
-----
-
-Next: :doc:`sourmash`
