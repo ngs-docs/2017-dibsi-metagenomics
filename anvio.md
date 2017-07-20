@@ -165,8 +165,7 @@ anvi-merge *ANVIO_PROFILE/PROFILE.db -o MERGED-SAMPLES -c anvio-contigs.db --enf
 
 Now we can visualize our data!
 ```
-anvi-interactive -p MERGED-SAMPLES/PROFILE.db
--c anvio-contigs.db
+anvi-interactive -p MERGED-SAMPLES/PROFILE.db -c anvio-contigs.db
 ```
 
 ## Identifing and refining genome bins
@@ -181,8 +180,7 @@ Take a look at the output in `SAMPLES-SUMMARY`. What does it report?
 Now you can visuzlize those data in the anvi'o style by simply adding the -C flag to the previous anvi-interactive command:
 
 ```
-anvi-interactive -p MERGED-SAMPLES/PROFILE.db
--c anvio-contigs.db -C CONCOCT
+anvi-interactive -p MERGED-SAMPLES/PROFILE.db -c anvio-contigs.db -C CONCOCT
 ```
 
 Now, we can actually refine the genome bins using anvi'o. This allows us to use human intutition and pattern recognition to better identify contigs that should co-occur.
