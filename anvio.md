@@ -188,3 +188,9 @@ Now, we can actually refine the genome bins using anvi'o. This allows us to use 
 ```
  anvi-refine -p MERGED-SAMPLES/PROFILE.db -c anvio-contigs.db -b Bin_4 -C CONCOCT
 ```
+
+Finally, it is time to interact with the anvi'o interface. [Here](files/interacting-with-anvio.pdf) are some screenshots to help guide you in your quest. 
+
+---
+
+And of course a big thank you to [Meren](http://merenlab.org/people/) for providing us with extra materials to help create this tutorial! 
