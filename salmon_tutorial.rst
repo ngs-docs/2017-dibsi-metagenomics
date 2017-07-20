@@ -29,7 +29,7 @@ Download and extract the latest version of Salmon and add it to your PATH:
     export PATH=$PATH:$HOME/Salmon-0.7.2_linux_x86_64/bin
 
 Running Salmon
-=============+
+==============
   
 Make a new directory for the quantification of data with Salmon:
 ::
