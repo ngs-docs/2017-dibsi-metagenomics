@@ -112,7 +112,7 @@ Now, we can create one file::
    do 
       name=${file%%.*}
       sed -e "s/count/$name/g" $file > tmp
-      mv tmp $x
+      mv tmp $file
    done
    paste *counts |cut -f 1,2,4 > Combined-counts.tab
 
